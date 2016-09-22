@@ -101,10 +101,19 @@ NeighborhoodVis.prototype.updateVis = function() {
           circle.openPopup();
           d3.select("#tt_total")
             .text(o.properties.article_description);
+          d3.select("#tt_female")
+            .text(o.properties.primary_event_date);
+          d3.select("#tt_black_african")
+            .text(o.properties.primary_loc);
+
       });
       circle.on('mouseout', function() {
           circle.closePopup();
           d3.select("#tt_total")
+            .text("");
+          d3.select("#tt_female")
+            .text("");
+          d3.select("#tt_black_african")
             .text("");
       });
       that.circles.addLayer(circle);

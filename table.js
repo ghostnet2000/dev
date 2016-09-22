@@ -58,14 +58,22 @@ d3.chart.table = function() {
       //changes the details in the tooltip item
 
       d3.select("#tt_total")
-          .text(d.properties.article_description);
+        .text(d.properties.article_description);
+      d3.select("#tt_female")
+        .text(d.properties.primary_event_date);
+      d3.select("#tt_black_african")
+        .text(d.properties.primary_loc);
     })
     rowsEnter.on("mouseout", function(d) {
       d3.select(this).style("background-color", "")
       dispatch.hover([])
       //Clear Text
       d3.select("#tt_total")
-          .text("");
+        .text("");
+      d3.select("#tt_female")
+        .text("");
+      d3.select("#tt_black_african")
+        .text("");
     })
   }
 

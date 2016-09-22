@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <title>  Explorer</title>
+    <script src="http://d3js.org/d3.v3.js"></script>
+    <script src="table.js"></script>
+    <script src="scatter.js"></script>
+    <script src="brush.js"></script>
+    <script src="symbol_map.js"></script>
+    <script src="js/neighborhoodvis.js"></script>
+    <script src="histogram.js"></script>
+    <script src="libs/jquery-2.1.3.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.js'></script>
+    <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+    <script src="http://d3js.org/colorbrewer.v1.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="libs/Polyline.encoded.js"></script>
+    <script src="libs/token.js"></script>
+
+    <link type="text/css" rel="stylesheet" href="choropleth.css"/>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
+    <link rel="stylesheet" href="css/custom.css" />
+
+
+  </head>
+  <body>
+
+    <div id="continer">
+      <div id="input_container">
+        <div id="racediv_container" class >
+                <div id="neighborhoodVis">
+                  <div id="mapVis"></div>
+                </div>
+        </div>
+        <div id="agediv_container" class="selector">
+              <div class="num_header">
+                Provinces Total Incident
+              </div>
+        </div>
+      </div>
+      <svg id="spacer"> </svg>
+      <div id="map_and_bars">
+        <div id="tooltip">
+          <table>
+            <tr>
+              <th class="tt_header"> Details </th>
+              <th id="tt_province" class="tt_header">View</th>
+            </tr>
+            <tr>
+              <td colspan="2" class="tt_spacer"></td>
+            </tr>
+            <tr>
+              <td> Description :</td>
+              <td id="tt_total" class="tt_number"></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="tt_spacer"></td>
+            </tr>
+            <tr>
+              <td>  </td>
+              <td id="tt_male" class="tt_number"></td>
+            </tr>
+            <tr>
+              <td> Date : </td>
+              <td id="tt_female" class="tt_number"></td>
+            </tr>
+            <tr>
+              <td colspan="2" class="tt_spacer"></td>
+            </tr>
+            <tr>
+              <td> Location : </td>
+              <td id="tt_black_african" class="tt_number"></td>
+            </tr>
+            <tr>
+              <td> </td>
+              <td id="tt_white" class="tt_number"></td>
+            </tr>
+            <tr>
+              <td>:</td>
+              <td id="tt_indian_asian" class="tt_number"></td>
+            </tr>
+            <tr>
+              <td>:</td>
+              <td id="tt_coloured" class="tt_number"></td>
+            </tr>
+          </table>
+
+            <div id="mouseover_tip">Move your mouse over the different circles to see the detail.</div>
+
+        </div>
+
+        <div id="all_provinces_bar_graph"></div>
+
+
+      </div>
+      <div>
+      <svg id="spacer"> </svg>
+      </div>
+        <div id="brush_container" >
+        </div>
+    </div>
+    <div>
+      <svg id="spacer"> </svg>
+    </div>
+      <script type="text/javascript" src="census.js"></script>
+<script type="text/javascript">
+
+      var display = d3.select("#stackedVis");
+      var MyEventHandler = {};
+      var neighborhoodVis;
+
+
+
+
+      d3.json("output.json", function(err, pics1) {
+        var data = pics1.features;
+
+        console.log(data);
+
+
+        data.forEach(function(d) {
+          //d.data.created *= 1000; // Not timestamp
+        })
+        console.log(data);
+
+        var dataLoaded = function(_hoodData) {
+            neighborhoodVis = new NeighborhoodVis(d3.select("#mapVis"), data, _hoodData, MyEventHandler);
+        };
+
+        d3.csv("data/namecolor.csv", function(errorHood, neighborhoods) {
+          if (!errorHood) {
+            dataLoaded(neighborhoods);
+          }
+        })
+
+        
+
+        var display = d3.select("#stackedVis")
+        
+        
+
+        /**** Remove Map ******?
+        var svg = d3.select("#chart")
+            .append("svg")
+            .attr("width",350)
+            .attr("height",350);
+        var map = d3.chart.symbol_map()
+        map.data(data)
+        map(svg);
+        ****************************/
+
+
+        var all_provinces_svg = d3.select("#all_provinces_bar_graph")
+          .append("table")
+          .attr("width", 460)
+          .attr("height", 350);
+        var tdiv = all_provinces_svg.append("div").classed("table", true)
+        var table = d3.chart.table()
+        table.data(data)
+        table(tdiv);
+        
+
+        //brush
+      
+        var bgroup = d3.select("#brush_container")
+          .append("svg:svg")
+          .attr("width", 940)
+          .attr("height", 50);
+        var brush = d3.chart.brush()
+        brush
+          .data(data)
+        brush(bgroup)
+
+        
+        var bar_svg = d3.select("#agediv_container")
+            .append("svg")
+            .attr("width",350)
+            .attr("height",410);
+        var histogram = d3.chart.histogram()
+        histogram.data(data)
+        histogram(bar_svg);
+        
+
+
+        brush.on("filter", function(filtered) {
+          console.log("filtered", filtered);
+
+          //scatter.data(filtered);
+          //scatter.update();
+          table.data(filtered)
+          table.update();
+          
+          neighborhoodVis.data(filtered);
+          neighborhoodVis.updateVis();
+
+          histogram.data(filtered)
+          histogram.update();
+
+
+        })
+      
+        table.on("hover", function(hovered) {
+          //scatter.highlight(hovered)
+          brush.highlight(hovered)
+        })
+        
+      
+      })
+
+</script>
+  </body>
+</html>
+

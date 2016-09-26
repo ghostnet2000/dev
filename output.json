@@ -109,7 +109,8 @@
         "id" : "6",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ -77.4631358141, 24.9841515 ]},
+
+                "coordinates" : [ 27.5598573, -33.1091603 ]},
         "properties" : { 
             "article_title" : "3 Chinese vessels escorted to EC harbour on suspicion of illegal fishing",
             "article_date" : "23/05/2016",
@@ -151,7 +152,7 @@
         "id" : "8",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ -77.4631358141, 24.9841515 ]},
+                "coordinates" : [ 27.5598573, -33.1091603 ]},
         "properties" : { 
             "article_title" : "Navy plays major role in impounding 600 tons of squid and other fish as well as foreign trawlers",
             "article_date" : "26/05/2016",
@@ -160,7 +161,7 @@
             "article_description" : "Three foreign fishing vessels, escorted into East London harbour (carrying 600 tons of squid as well as other fish caught illegally).",
             "primary_event" : "Detection of illegal fishing vessels in South Africa's EEZ.",
             "primary_loc" : "East London harbour",
-            "primary_event_date" : "20/05/2016 - 22/05/2016",
+            "primary_event_date" : "20/05/2016",
             "secondary_event" : "",
             "secondary_loc" : "",
             "province" : "EC",
@@ -172,7 +173,7 @@
         "id" : "9",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ -77.4631358141, 24.9841515 ]},
+                "coordinates" : [ 27.5598573, -33.1091603 ]},
         "properties" : { 
             "article_title" : "Another three Chinese fishing trawlers escorted into a SA port",
             "article_date" : "23/05/2016",
@@ -255,7 +256,7 @@
         "id" : "13",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ -77.4631358141, 24.9841515 ]},
+                "coordinates" : [ 27.5598573, -33.1091603 ]},
         "properties" : { 
             "article_title" : "3 Chinese fishing trawlers escorted to East London harbour",
             "article_date" : "23/05/2016",
@@ -411,12 +412,12 @@
             "article_description" : "Man caught for Illegal harvesting of rock lobster must pay South Africa.",
             "primary_event" : "Illegal harvesting of rock lobster.",
             "primary_loc" : "Cape Town",
-            "primary_event_date" : "1987 - 2001",
+            "primary_event_date" : "1/1/1987",
             "secondary_event" : "",
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "20",
-            "secondary_event_date" : ""
+            "secondary_event_date" : "1/1/2001"
             }
         },
          { "type" : "Feature",
@@ -465,7 +466,7 @@
         "id" : "23",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ 36.3337005732, 32.2882969 ]},
+                "coordinates" : [ 24.991639, -28.8166235 ]},
         "properties" : { 
             "article_title" : "Worrying pressure on SA’s fish stocks",
             "article_date" : "09/06/2015",
@@ -737,7 +738,7 @@
         "id" : "36",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ -73.993550178, 40.7505247 ]},
+                "coordinates" : [ 25.6272222, -33.9122221 ]},
         "properties" : { 
             "article_title" : "Red tide warning issued to Garden Route",
             "article_date" : "16/12/2015",
@@ -841,8 +842,8 @@
          { "type" : "Feature",
         "id" : "41",
             "geometry" : {
-                "type" : "Point",
-                "coordinates" : [ -79.858285, 43.8754268 ]},
+                "type" : "Point", 
+                "coordinates" : [ 19.42833, -34.23000 ]},
         "properties" : { 
             "article_title" : "Abalone worth R2-million seized by police",
             "article_date" : "29/04/2016",
@@ -862,8 +863,8 @@
          { "type" : "Feature",
         "id" : "42",
             "geometry" : {
-                "type" : "Point",
-                "coordinates" : [ -121.6806084, 38.5505962 ]},
+                "type" : "Point", 
+                "coordinates" : [ 19.2361111, -34.4175 ]},
         "properties" : { 
             "article_title" : "Abalone poachers' network spread far and wide",
             "article_date" : "15/05/2015",
@@ -904,8 +905,8 @@
          { "type" : "Feature",
         "id" : "44",
             "geometry" : {
-                "type" : "Point",
-                "coordinates" : [ -2.3232444, 55.6852915 ]},
+                "type" : "Point",    
+                "coordinates" : [ 18.629438, -33.89427 ]},
         "properties" : { 
             "article_title" : "Police seize abalone worth R500000 in Belville",
             "article_date" : "13/05/2016",
@@ -925,8 +926,8 @@
          { "type" : "Feature",
         "id" : "45",
             "geometry" : {
-                "type" : "Point",
-                "coordinates" : [ -80.0403577, 39.1523198 ]},
+                "type" : "Point", 
+                "coordinates" : [ 18.58889, -34.01806 ]},
         "properties" : { 
             "article_title" : "Cops make massive R17m abalone bust",
             "article_date" : "16/10/2015",
@@ -1010,7 +1011,7 @@
         "id" : "49",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ 18.417396, -33.9289916 ]},
+                "coordinates" : [ 18.6644300, -34.1728600 ]},
         "properties" : { 
             "article_title" : "Rising seawater leads to CT evacuations",
             "article_date" : "26/12/2014",
@@ -1199,7 +1200,7 @@
         "id" : "58",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ 170.7100413, -42.9945668 ]},
+                "coordinates" : [ 18.350464, -32.313495  ]},
         "properties" : { 
             "article_title" : "Red tide confirmed on West Coast",
             "article_date" : "04/02/2015",
@@ -1240,8 +1241,8 @@
          { "type" : "Feature",
         "id" : "60",
             "geometry" : {
-                "type" : "Point",
-                "coordinates" : [ 1.3842066, 51.3881317 ]},
+                "type" : "Point",  
+                "coordinates" : [ 30.36667, -30.85000 ]},
         "properties" : { 
             "article_title" : "Sardines make surprise appearance at Margate",
             "article_date" : "05/06/2015",
@@ -1325,7 +1326,7 @@
         "id" : "64",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ 137.644840065, -32.94507115 ]},
+                "coordinates" : [ 18.6644300, -34.1728600 ]},
         "properties" : { 
             "article_title" : "Buoy genius clears the coast",
             "article_date" : "20/11/2015",
@@ -1367,7 +1368,7 @@
         "id" : "66",
             "geometry" : {
                 "type" : "Point",
-                "coordinates" : [ -75.0890708, 38.5451122 ]},
+                "coordinates" : [ 18.353165254, -34.151999392 ]},
         "properties" : { 
             "article_title" : "Ocean View fishers drowned out by policy",
             "article_date" : "10/02/2015",

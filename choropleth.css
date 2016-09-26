@@ -201,7 +201,8 @@ body {
 }
 
 #mapVis {
-	width: 500px;
+	float: left;
+	width: 470px;
 	height: 500px;
 }
 

@@ -4,7 +4,7 @@ var pg = require('pg');
 //connection protocol, username, password, host, post, and database name.
 
 //A localhost PostgreSQL database's connection string is simple.
-var connectionString = 'postgres://localhost/booktown';
+var connectionString = '"postgres://postgres:postgres@localhost/datahub';
 
 //Step 2
 

@@ -18,6 +18,8 @@
             "secondary_loc" : "Eastern Cape",
             "province" : "EC",
             "id" : "1",
+            "lon" : 26.6386401,
+            "lat" : -32.217183,
             "secondary_event_date" : "22/05/2016"
             }
         },
@@ -39,6 +41,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "2",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -60,6 +64,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "3",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -81,6 +87,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "4",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -102,6 +110,8 @@
             "secondary_loc" : "Eastern Cape coast",
             "province" : "EC",
             "id" : "5",
+            "lon" : 26.6386401,
+            "lat" : -32.217183,
             "secondary_event_date" : "09/05/2016 - 15/05/2016"
             }
         },
@@ -124,6 +134,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "6",
+            "lon" : 27.5598573,
+            "lat" : -33.1091603,
             "secondary_event_date" : ""
             }
         },
@@ -145,6 +157,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "7",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -166,6 +180,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "8",
+            "lon" : 27.5598573,
+            "lat" : -33.1091603,
             "secondary_event_date" : ""
             }
         },
@@ -187,6 +203,8 @@
             "secondary_loc" : "Cape Town harbour",
             "province" : "EC",
             "id" : "9",
+            "lon" : 27.5598573,
+            "lat" : -33.1091603,
             "secondary_event_date" : "09/05/2016 - 15/05/2016"
             }
         },
@@ -208,6 +226,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "10",
+            "lon" : 18.8702778,
+            "lat" : -34.1622221,
             "secondary_event_date" : ""
             }
         },
@@ -229,6 +249,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "11",
+            "lon" : 20.4399348,
+            "lat" : -34.0452437,
             "secondary_event_date" : ""
             }
         },
@@ -249,6 +271,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "12",
+            "lon" : 18.4468434511,
+            "lat" : -34.12715335,
             "secondary_event_date" : ""
             }
         },
@@ -270,6 +294,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "13",
+            "lon" : 27.5598573,
+            "lat" : -33.1091603,
             "secondary_event_date" : ""
             }
         },
@@ -291,6 +317,8 @@
             "secondary_loc" : "",
             "province" : "KZN",
             "id" : "14",
+            "lon" : 31.0099095,
+            "lat" : -29.8618253,
             "secondary_event_date" : ""
             }
         },
@@ -312,6 +340,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "15",
+            "lon" : 25.6207519,
+            "lat" : -33.961705,
             "secondary_event_date" : ""
             }
         },
@@ -333,6 +363,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "16",
+            "lon" : 18.3789695,
+            "lat" : -33.9281511,
             "secondary_event_date" : ""
             }
         },
@@ -354,6 +386,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "17",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -375,6 +409,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "18",
+            "lon" : 18.417396,
+            "lat" : -33.9289916,
             "secondary_event_date" : ""
             }
         },
@@ -396,6 +432,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "19",
+            "lon" : 18.417396,
+            "lat" : -33.9289916,
             "secondary_event_date" : ""
             }
         },
@@ -417,6 +455,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "20",
+            "lon" : 18.417396,
+            "lat" : -33.9289916,
             "secondary_event_date" : "1/1/2001"
             }
         },
@@ -438,6 +478,8 @@
             "secondary_loc" : "One nautical mile off-shore of Hangklip, False Bay, between Gordon’s Bay and Hermanus",
             "province" : "WC",
             "id" : "21",
+            "lon" : 18.0863307589,
+            "lat" : -33.4232049,
             "secondary_event_date" : "01/07/2015"
             }
         },
@@ -459,6 +501,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "22",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -480,6 +524,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "23",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -501,6 +547,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "24",
+            "lon" : 31.0019226,
+            "lat" : -29.9231005,
             "secondary_event_date" : ""
             }
         },
@@ -522,6 +570,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "25",
+            "lon" : 31.0019226,
+            "lat" : -29.9231005,
             "secondary_event_date" : ""
             }
         },
@@ -543,6 +593,8 @@
             "secondary_loc" : "Eland's Bay",
             "province" : "WC",
             "id" : "26",
+            "lon" : 31.0019226,
+            "lat" : -29.9231005,
             "secondary_event_date" : "09/02/2015"
             }
         },
@@ -564,6 +616,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "27",
+            "lon" : 31.0019226,
+            "lat" : -29.9231005,
             "secondary_event_date" : ""
             }
         },
@@ -585,6 +639,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "28",
+            "lon" : 23.3694444,
+            "lat" : -34.0527777,
             "secondary_event_date" : ""
             }
         },
@@ -606,6 +662,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "29",
+            "lon" : 31.0019226,
+            "lat" : -29.9231005,
             "secondary_event_date" : ""
             }
         },
@@ -627,6 +685,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "30",
+            "lon" : 18.417396,
+            "lat" : -33.9289916,
             "secondary_event_date" : ""
             }
         },
@@ -648,6 +708,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "31",
+            "lon" : 25.6207519,
+            "lat" : -33.961705,
             "secondary_event_date" : ""
             }
         },
@@ -669,6 +731,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "32",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -690,6 +754,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "33",
+            "lon" : 25.6207519,
+            "lat" : -33.961705,
             "secondary_event_date" : ""
             }
         },
@@ -711,6 +777,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "34",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -731,6 +799,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "35",
+            "lon" : 23.3694444,
+            "lat" : -34.0527777,
             "secondary_event_date" : ""
             }
         },
@@ -752,6 +822,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "36",
+            "lon" : 25.6272222,
+            "lat" : -33.9122221,
             "secondary_event_date" : ""
             }
         },
@@ -773,6 +845,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "37",
+            "lon" : 25.6272222,
+            "lat" : -33.9122221,
             "secondary_event_date" : ""
             }
         },
@@ -794,6 +868,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "38",
+            "lon" : 18.3556447,
+            "lat" : -34.0430931,
             "secondary_event_date" : ""
             }
         },
@@ -815,6 +891,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "39",
+            "lon" : 18.417396,
+            "lat" : -33.9289916,
             "secondary_event_date" : ""
             }
         },
@@ -836,6 +914,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "40",
+            "lon" : 18.0348886,
+            "lat" : -33.0907169,
             "secondary_event_date" : ""
             }
         },
@@ -857,6 +937,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "41",
+            "lon" : 19.42833,
+            "lat" : -34.23000,
             "secondary_event_date" : ""
             }
         },
@@ -878,6 +960,8 @@
             "secondary_loc" : "1998-2011",
             "province" : "WC",
             "id" : "42",
+            "lon" : 19.2361111,
+            "lat" : -34.4175,
             "secondary_event_date" : ""
             }
         },
@@ -899,6 +983,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "43",
+            "lon" : 18.417396,
+            "lat" : -33.9289916,
             "secondary_event_date" : ""
             }
         },
@@ -920,6 +1006,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "44",
+            "lon" : 18.629438,
+            "lat" : -33.89427,
             "secondary_event_date" : ""
             }
         },
@@ -941,6 +1029,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "45",
+            "lon" : 18.58889,
+            "lat" : -34.01806,
             "secondary_event_date" : ""
             }
         },
@@ -962,6 +1052,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "46",
+            "lon" : 18.4458333,
+            "lat" : -33.7222221,
             "secondary_event_date" : ""
             }
         },
@@ -983,6 +1075,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "47",
+            "lon" : 18.417396,
+            "lat" : -33.9289916,
             "secondary_event_date" : ""
             }
         },
@@ -1004,6 +1098,8 @@
             "secondary_loc" : "Saldanah Bay",
             "province" : "EC",
             "id" : "48",
+            "lon" : 27.8998573,
+            "lat" : -33.0191603,
             "secondary_event_date" : ""
             }
         },
@@ -1025,6 +1121,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "49",
+            "lon" : 18.6644300,
+            "lat" : -34.1728600,
             "secondary_event_date" : ""
             }
         },
@@ -1046,6 +1144,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "50",
+            "lon" : 18.3922222,
+            "lat" : -33.9172221,
             "secondary_event_date" : ""
             }
         },
@@ -1067,6 +1167,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "51",
+            "lon" : 18.4850894798,
+            "lat" : -33.80464535,
             "secondary_event_date" : ""
             }
         },
@@ -1088,6 +1190,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "52",
+            "lon" : 18.4850894798,
+            "lat" : -33.80464535,
             "secondary_event_date" : ""
             }
         },
@@ -1109,6 +1213,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "53",
+            "lon" : 18.4850894798,
+            "lat" : -33.80464535,
             "secondary_event_date" : ""
             }
         },
@@ -1130,6 +1236,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "54",
+            "lon" : 25.6825832216,
+            "lat" : -34.0223799,
             "secondary_event_date" : ""
             }
         },
@@ -1151,6 +1259,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "55",
+            "lon" : 24.8329159,
+            "lat" : -34.1716758,
             "secondary_event_date" : ""
             }
         },
@@ -1172,6 +1282,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "56",
+            "lon" : 23.3694444,
+            "lat" : -34.0527777,
             "secondary_event_date" : ""
             }
         },
@@ -1193,6 +1305,8 @@
             "secondary_loc" : "",
             "province" : "KZN",
             "id" : "57",
+            "lon" : 30.5736111,
+            "lat" : -30.5719443,
             "secondary_event_date" : ""
             }
         },
@@ -1214,6 +1328,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "58",
+            "lon" : 18.350464,
+            "lat" : -32.313495,
             "secondary_event_date" : ""
             }
         },
@@ -1235,6 +1351,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "59",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -1256,6 +1374,8 @@
             "secondary_loc" : "",
             "province" : "KZN",
             "id" : "60",
+            "lon" : 30.36667,
+            "lat" : -30.85000,
             "secondary_event_date" : ""
             }
         },
@@ -1277,6 +1397,8 @@
             "secondary_loc" : "",
             "province" : "KZN",
             "id" : "61",
+            "lon" : 31.0099095,
+            "lat" : -29.8618253,
             "secondary_event_date" : ""
             }
         },
@@ -1298,6 +1420,8 @@
             "secondary_loc" : "",
             "province" : "EC",
             "id" : "62",
+            "lon" : 25.6207519,
+            "lat" : -33.961705,
             "secondary_event_date" : ""
             }
         },
@@ -1319,6 +1443,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "63",
+            "lon" : 18.417396,
+            "lat" : -33.9289916 ,
             "secondary_event_date" : ""
             }
         },
@@ -1340,6 +1466,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "64",
+            "lon" : 18.6644300,
+            "lat" : -34.1728600,
             "secondary_event_date" : ""
             }
         },
@@ -1361,6 +1489,8 @@
             "secondary_loc" : "",
             "province" : "ZA",
             "id" : "65",
+            "lon" : 24.991639,
+            "lat" : -28.8166235,
             "secondary_event_date" : ""
             }
         },
@@ -1382,6 +1512,8 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "66",
+            "lon" : 18.353165254,
+            "lat" : -34.151999392,
             "secondary_event_date" : ""
             }
         }

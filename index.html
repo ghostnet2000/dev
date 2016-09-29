@@ -34,7 +34,6 @@
     <link href='https://api.tiles.mapbox.com/mapbox.js/v2.1.6/mapbox.css' rel='stylesheet' />
     <link rel="stylesheet" href="css/custom.css" />
   
-    <script type="text/javascript" src="d3.v2.js"></script>
     <link type="text/css" rel="stylesheet" href="choropleth.css"/>
 
     <script src="http://openlayers.org/en/v3.18.2/build/ol.js"></script>
@@ -171,7 +170,7 @@
       <svg id="spacer"> </svg>
     </div>
       <script type="text/javascript" src="census.js"></script>
-<script type="text/javascript">
+      <script type="text/javascript">
 
       var display = d3.select("#stackedVis");
       var MyEventHandler = {};
@@ -180,8 +179,11 @@
 
 
 
-      d3.json("output.json", function(err, pics1) {
-        var data = pics1.features;
+      d3.json('https://localhost:3000/api/medias/d/1', function(err, pics1) {
+        //console.log("error", err);
+        setTimeout('', 10000);
+        alert(err);
+        var data = pics1.data;
 
         console.log(data);
 

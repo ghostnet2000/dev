@@ -20,6 +20,7 @@
             "id" : "1",
             "lon" : 26.6386401,
             "lat" : -32.217183,
+            "topic" : "illegal fishing",
             "secondary_event_date" : "22/05/2016"
             }
         },
@@ -43,6 +44,7 @@
             "id" : "2",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "Protecting the oceans",
             "secondary_event_date" : ""
             }
         },
@@ -66,6 +68,7 @@
             "id" : "3",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "illegal fishing",
             "secondary_event_date" : ""
             }
         },
@@ -89,6 +92,7 @@
             "id" : "4",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "Protecting the oceans",
             "secondary_event_date" : ""
             }
         },
@@ -112,6 +116,7 @@
             "id" : "5",
             "lon" : 26.6386401,
             "lat" : -32.217183,
+            "topic" : "illegal fishing",
             "secondary_event_date" : "09/05/2016 - 15/05/2016"
             }
         },
@@ -136,6 +141,7 @@
             "id" : "6",
             "lon" : 27.5598573,
             "lat" : -33.1091603,
+            "topic" : "illegal fishing",
             "secondary_event_date" : ""
             }
         },
@@ -159,6 +165,7 @@
             "id" : "7",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "illegal fishing",
             "secondary_event_date" : ""
             }
         },
@@ -182,6 +189,7 @@
             "id" : "8",
             "lon" : 27.5598573,
             "lat" : -33.1091603,
+            "topic" : "illegal fishing",
             "secondary_event_date" : ""
             }
         },
@@ -205,6 +213,7 @@
             "id" : "9",
             "lon" : 27.5598573,
             "lat" : -33.1091603,
+            "topic" : "illegal fishing",
             "secondary_event_date" : "09/05/2016 - 15/05/2016"
             }
         },
@@ -228,6 +237,7 @@
             "id" : "10",
             "lon" : 18.8702778,
             "lat" : -34.1622221,
+            "topic": "illegal crayfish",
             "secondary_event_date" : ""
             }
         },
@@ -251,6 +261,7 @@
             "id" : "11",
             "lon" : 20.4399348,
             "lat" : -34.0452437,
+            "topic" : "Protecting the oceans",
             "secondary_event_date" : ""
             }
         },
@@ -273,6 +284,7 @@
             "id" : "12",
             "lon" : 18.4468434511,
             "lat" : -34.12715335,
+            "topic" : "Protecting the oceans",
             "secondary_event_date" : ""
             }
         },
@@ -296,6 +308,7 @@
             "id" : "13",
             "lon" : 27.5598573,
             "lat" : -33.1091603,
+            "topic" : "illegal fishing",
             "secondary_event_date" : ""
             }
         },
@@ -319,6 +332,7 @@
             "id" : "14",
             "lon" : 31.0099095,
             "lat" : -29.8618253,
+            "topic" : "illegal fishing",
             "secondary_event_date" : ""
             }
         },
@@ -342,6 +356,7 @@
             "id" : "15",
             "lon" : 25.6207519,
             "lat" : -33.961705,
+            "topic" : "Operation Phakisa",
             "secondary_event_date" : ""
             }
         },
@@ -365,6 +380,7 @@
             "id" : "16",
             "lon" : 18.3789695,
             "lat" : -33.9281511,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -388,6 +404,7 @@
             "id" : "17",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -411,6 +428,7 @@
             "id" : "18",
             "lon" : 18.417396,
             "lat" : -33.9289916,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -434,6 +452,7 @@
             "id" : "19",
             "lon" : 18.417396,
             "lat" : -33.9289916,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -457,6 +476,7 @@
             "id" : "20",
             "lon" : 18.417396,
             "lat" : -33.9289916,
+            "topic" : "",
             "secondary_event_date" : "1/1/2001"
             }
         },
@@ -480,6 +500,7 @@
             "id" : "21",
             "lon" : 18.0863307589,
             "lat" : -33.4232049,
+            "topic" : "",
             "secondary_event_date" : "01/07/2015"
             }
         },
@@ -503,6 +524,7 @@
             "id" : "22",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -526,6 +548,7 @@
             "id" : "23",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -547,8 +570,9 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "24",
-            "lon" : 31.0019226,
-            "lat" : -29.9231005,
+            "lon" : 18.317,
+            "lat" : -32.300,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -570,8 +594,9 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "25",
-            "lon" : 31.0019226,
-            "lat" : -29.9231005,
+            "lon" : 18.317,
+            "lat" : -32.300,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -593,8 +618,9 @@
             "secondary_loc" : "Eland's Bay",
             "province" : "WC",
             "id" : "26",
-            "lon" : 31.0019226,
-            "lat" : -29.9231005,
+            "lon" : 18.317,
+            "lat" : -32.300,
+            "topic" : "",
             "secondary_event_date" : "09/02/2015"
             }
         },
@@ -616,8 +642,9 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "27",
-            "lon" : 31.0019226,
-            "lat" : -29.9231005,
+            "lon" : 18.317,
+            "lat" : -32.300,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -641,6 +668,7 @@
             "id" : "28",
             "lon" : 23.3694444,
             "lat" : -34.0527777,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -662,8 +690,9 @@
             "secondary_loc" : "",
             "province" : "WC",
             "id" : "29",
-            "lon" : 31.0019226,
-            "lat" : -29.9231005,
+            "lon" : 18.317,
+            "lat" : -32.300,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -687,6 +716,7 @@
             "id" : "30",
             "lon" : 18.417396,
             "lat" : -33.9289916,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -710,6 +740,7 @@
             "id" : "31",
             "lon" : 25.6207519,
             "lat" : -33.961705,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -733,6 +764,7 @@
             "id" : "32",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -756,6 +788,7 @@
             "id" : "33",
             "lon" : 25.6207519,
             "lat" : -33.961705,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -779,6 +812,7 @@
             "id" : "34",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -801,6 +835,7 @@
             "id" : "35",
             "lon" : 23.3694444,
             "lat" : -34.0527777,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -820,10 +855,11 @@
             "primary_event_date" : "16/12/2015",
             "secondary_event" : "",
             "secondary_loc" : "",
-            "province" : "WC",
+            "province" : "EC",
             "id" : "36",
             "lon" : 25.6272222,
             "lat" : -33.9122221,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -843,10 +879,11 @@
             "primary_event_date" : "10/12/2015",
             "secondary_event" : "",
             "secondary_loc" : "",
-            "province" : "WC",
+            "province" : "EC",
             "id" : "37",
             "lon" : 25.6272222,
             "lat" : -33.9122221,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -870,6 +907,7 @@
             "id" : "38",
             "lon" : 18.3556447,
             "lat" : -34.0430931,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -893,6 +931,7 @@
             "id" : "39",
             "lon" : 18.417396,
             "lat" : -33.9289916,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -916,6 +955,7 @@
             "id" : "40",
             "lon" : 18.0348886,
             "lat" : -33.0907169,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -939,6 +979,7 @@
             "id" : "41",
             "lon" : 19.42833,
             "lat" : -34.23000,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -962,6 +1003,7 @@
             "id" : "42",
             "lon" : 19.2361111,
             "lat" : -34.4175,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -985,6 +1027,7 @@
             "id" : "43",
             "lon" : 18.417396,
             "lat" : -33.9289916,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1008,6 +1051,7 @@
             "id" : "44",
             "lon" : 18.629438,
             "lat" : -33.89427,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1031,6 +1075,7 @@
             "id" : "45",
             "lon" : 18.58889,
             "lat" : -34.01806,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1054,6 +1099,7 @@
             "id" : "46",
             "lon" : 18.4458333,
             "lat" : -33.7222221,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1077,6 +1123,7 @@
             "id" : "47",
             "lon" : 18.417396,
             "lat" : -33.9289916,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1100,6 +1147,7 @@
             "id" : "48",
             "lon" : 27.8998573,
             "lat" : -33.0191603,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1123,6 +1171,7 @@
             "id" : "49",
             "lon" : 18.6644300,
             "lat" : -34.1728600,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1146,6 +1195,7 @@
             "id" : "50",
             "lon" : 18.3922222,
             "lat" : -33.9172221,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1169,6 +1219,7 @@
             "id" : "51",
             "lon" : 18.4850894798,
             "lat" : -33.80464535,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1192,6 +1243,7 @@
             "id" : "52",
             "lon" : 18.4850894798,
             "lat" : -33.80464535,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1215,6 +1267,7 @@
             "id" : "53",
             "lon" : 18.4850894798,
             "lat" : -33.80464535,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1234,10 +1287,11 @@
             "primary_event_date" : "22/11/2014",
             "secondary_event" : "",
             "secondary_loc" : "",
-            "province" : "WC",
+            "province" : "EC",
             "id" : "54",
             "lon" : 25.6825832216,
             "lat" : -34.0223799,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1261,6 +1315,7 @@
             "id" : "55",
             "lon" : 24.8329159,
             "lat" : -34.1716758,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1284,6 +1339,7 @@
             "id" : "56",
             "lon" : 23.3694444,
             "lat" : -34.0527777,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1307,6 +1363,7 @@
             "id" : "57",
             "lon" : 30.5736111,
             "lat" : -30.5719443,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1330,6 +1387,7 @@
             "id" : "58",
             "lon" : 18.350464,
             "lat" : -32.313495,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1353,6 +1411,7 @@
             "id" : "59",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1376,6 +1435,7 @@
             "id" : "60",
             "lon" : 30.36667,
             "lat" : -30.85000,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1399,6 +1459,7 @@
             "id" : "61",
             "lon" : 31.0099095,
             "lat" : -29.8618253,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1422,6 +1483,7 @@
             "id" : "62",
             "lon" : 25.6207519,
             "lat" : -33.961705,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1445,6 +1507,7 @@
             "id" : "63",
             "lon" : 18.417396,
             "lat" : -33.9289916 ,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1468,6 +1531,7 @@
             "id" : "64",
             "lon" : 18.6644300,
             "lat" : -34.1728600,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1491,6 +1555,7 @@
             "id" : "65",
             "lon" : 24.991639,
             "lat" : -28.8166235,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         },
@@ -1514,6 +1579,7 @@
             "id" : "66",
             "lon" : 18.353165254,
             "lat" : -34.151999392,
+            "topic" : "",
             "secondary_event_date" : ""
             }
         }

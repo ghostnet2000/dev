@@ -44,12 +44,11 @@ FormVis.prototype.initVis = function() {
           '<button type="button" id="all" value="all" class="btn btn-default active">Overall</button>' + 
         '</div>'+
         '<div class="btn-group" role="group">' + 
-          '<button type="button" id="weekend" value="weekend" class="btn btn-default">Weekend</button>' + 
-          '<button type="button" id="weekday" value="weekday" class="btn btn-default">Weekday</button>'+ 
+          '<button type="button" id="kzn" value="kzn" class="btn btn-default">Kwazulu Natal</button>' + 
+          '<button type="button" id="ec" value="ec" class="btn btn-default">Eastern Cape</button>'+ 
         '</div>' +   
        '<div class="btn-group" role="group">' + 
-          '<button type="button" id="casual" value="casual" class="btn btn-default">Casual</button>' + 
-          '<button type="button" id="registered" value="registered" class="btn btn-default">Registered</button>'+ 
+          '<button type="button" id="wc" value="wc" class="btn btn-default">Western Cape</button>' + 
         '</div>'  );
 
   this.form.selectAll("button").on("click", function () {

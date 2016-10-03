@@ -179,11 +179,8 @@
 
 
 
-      d3.json('https://localhost:3000/api/medias/d/1', function(err, pics1) {
-        //console.log("error", err);
-        setTimeout('', 10000);
-        alert(err);
-        var data = pics1.data;
+      d3.json('output.json', function(err, pics1) {
+        var data = pics1.features;
 
         console.log(data);
 

@@ -129,9 +129,16 @@ initChord = function() {
   var screenWidth = $(window).innerWidth(), 
     mobileScreen = (screenWidth > 500 ? false : true);
 
-  var margin = {left: 50, top: 10, right: 50, bottom: 10},
-    width = Math.min(screenWidth, 800) - margin.left - margin.right,
-    height = (mobileScreen ? 300 : Math.min(screenWidth, 800)*5/6) - margin.top - margin.bottom;
+
+  var margin = {      
+      top: 10,
+      right: 10,
+      bottom: 10,
+      left: 10,
+      padding:10
+    },
+    width = $( "#chordVis" ).width() -150;
+    height = $( "#chordVis" ).height() - 200;
         
   var svg = d3.select("#chordVis").append("svg")
         .attr("width", (width + margin.left + margin.right))
@@ -162,7 +169,7 @@ initChord = function() {
     .style("font-size", mobileScreen ? "12px" : "16px" )
     .attr("x", (width/2 + margin.left - outerRadius - titleSeparate))
     .attr("y", titleOffset)
-    .text("Education");
+    .text("Province");
   titleWrapper.append("line")
     .attr("class","titleLine left")
     .attr("x1", (width/2 + margin.left - outerRadius - titleSeparate)*0.6)
@@ -175,7 +182,7 @@ initChord = function() {
     .style("font-size", mobileScreen ? "12px" : "16px" )
     .attr("x", (width/2 + margin.left + outerRadius + titleSeparate))
     .attr("y", titleOffset)
-    .text("Occupation");
+    .text("Topic");
   titleWrapper.append("line")
     .attr("class","titleLine right")
     .attr("x1", (width/2 + margin.left - outerRadius - titleSeparate)*0.6 + 2*(outerRadius + titleSeparate))
@@ -229,20 +236,20 @@ initChord = function() {
   ////////////////////////// Data ////////////////////////////
   ////////////////////////////////////////////////////////////
 
- var Names = ["illegal fishing", "Protecting the oceans", "Harmful Algal Bloom/ Red Tide", "Operation Phakisa", "", "Kwazulu Natal", "Eastern Cape","Western Cape", ""];
+ var Names = ["illegal fishing", "Protecting the oceans", "Harmful Algal Bloom/ Red Tide", "Phakisa", "", "Kwazulu Natal", "Eastern Cape","Western Cape", ""];
 
 var respondents = 150, //Total number of respondents (i.e. the number that makes up the group)
   emptyPerc = 0.4, //What % of the circle should become empty in comparison to the visible arcs
   emptyStroke = Math.round(respondents*emptyPerc); //How many "units" would define this empty percentage
 var matrix = [
-  [0,0,0, 0,0,10,5,15,0], //Z
+  [0,0,0, 0,15,18,15,15,0], //Z
   [0,0,0,0,0,5,15,20,0], //Y
   [0,0,0,0,0,15,5,5,0], //X
   [0,0,0,0,0,15,5,5,0], // 
   [0,0,0,0,0,0,0,0,emptyStroke], //Dummy stroke
   [10,5,15,0,0,0,0,0,0], //C
   [5,15,5,0,0,0,0,0,0], //B
-  [15,20,5,0,0,0,0,0,0], //A
+  [10,15,5,0,0,0,0,0,0], //A
   [0,0,0,0,emptyStroke,0,0,0,0] //Dummy stroke
 ];
 

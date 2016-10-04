@@ -33,6 +33,7 @@ CoastVis = function(_parentElement, _data, _metaData,_eventHandler) {
 
   // set width of outer div to height of window
   $('#mapVis').height(this.mapHeight);
+  //$('#mapVis').width(800);
 
   // set up SVG
   this.initVis();

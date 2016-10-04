@@ -32,21 +32,22 @@ WhenVis.prototype.initVis = function() {
   this.color = d3.scale.ordinal().domain([0,1]).range(["lightgreen","darkgreen"]);
   //this.color = d3.scale.ordinal().domain(colorDomain).range(colorRange);
 
-  var formatTime = d3.time.format("%H:%M"),
+  var formatTime = d3.time.format("%Y-%m-%d"),
       formatMinutes = function(d) { return formatTime(new Date(2012, 0, 1, 0, d)); };
 
-  this.x = d3.scale.linear()
-    .domain([0,1440])
-    .range([this.margin.left, this.width]);
 
-  this.y = d3.scale.linear()
-    .range([that.height, that.margin.bottom]);
-
+  /*****************************/
+  var start = new Date(1,1,2012),
+      stop = new Date(1/1/2016);
+  this.x = d3.time.scale().range([0, this.width]).domain([start,stop]);
   this.xAxis = d3.svg.axis()
     .scale(this.x)
-    .tickFormat(formatMinutes)
-    .ticks(20)
+    .ticks(24)
+    .tickFormat(d3.time.format("%m-%d"))
     .orient("bottom");
+  /*****************************/
+  this.y = d3.scale.linear()
+    .range([that.height, that.margin.bottom]);
 
   this.yAxis = d3.svg.axis()
     .scale(this.y)
@@ -68,19 +69,20 @@ WhenVis.prototype.initVis = function() {
     .attr("width", this.width + this.margin.left + this.margin.right)
     .attr("height", this.height + this.margin.top + this.margin.bottom)
     .append("g")
-    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ") ");
 
   this.svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0,"+this.height+")")
+      .attr("transform", "translate(0,"+this.height+") ")
       .append("text")
       .attr("x",this.width/2)
       .attr("y",40)
       .text("time of day");
 
+
   this.svg.append("g")
       .attr("class", "y axis")
-      .attr("transform", "translate("+this.margin.left+",0)")
+      .attr("transform", "translate("+this.margin.left+",0) ")
       .append("text")
       .attr("transform", "translate("+this.margin.left+","+this.margin.top+") rotate(-90)")
       .attr("y",-30)
@@ -116,8 +118,20 @@ WhenVis.prototype.updateVis = function() {
   this.svg.select(".y.axis")
     .call(this.yAxis);
 
+  /* Change x axis here
+   *  
+   */
   this.svg.select(".x.axis")
-    .call(this.xAxis);
+    .call(this.xAxis)
+    .selectAll("text")  
+    .style("text-anchor", "end")
+    .attr("dx", "-.8em")
+    .attr("dy", ".15em")
+    .attr("transform", function(d) {
+        return "rotate(-90)" 
+        });
+
+
   var lbl = (this.yVariable[0] == 'speed') ? "speed (mph)" : "count";
   lbl = (this.yVariable[0] == 'dist') ? "average distance per trip (miles)" :lbl;
   lbl = (this.yVariable[0] == 'duration') ? "average time per trip (minutes)" : lbl;
@@ -162,7 +176,7 @@ WhenVis.prototype.updateVis = function() {
 
   text.select('text')
     .attr("transform","translate(100,100)")
-    .text(function (d) { console.log(d); return d.type})
+    .text(function (d) { return d.type})
   area.exit().remove();
   line.exit().remove();
 }

@@ -166,6 +166,15 @@ $(function() {
     // call this function after both files are loaded -- error should be "null" if no error
     var dataLoaded = function(_data) {
         dateData = _data.map(function (d) {
+          /*
+          return {
+            date: d.article_date,
+            overall: {
+              total: 
+            }
+          }
+
+          */
           return {
             timeofday: makeMinutes(d.timeofday),
             dist : {

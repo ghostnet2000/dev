@@ -29,77 +29,29 @@ WhenVis = function(_parentElement, _data, _eventHandler) {
 
 WhenVis.prototype.initVis = function() {
   var that = this;
-  this.color = d3.scale.ordinal().domain([0,1]).range(["lightgreen","darkgreen"]);
-  //this.color = d3.scale.ordinal().domain(colorDomain).range(colorRange);
 
-  var formatTime = d3.time.format("%Y-%m-%d"),
-      formatMinutes = function(d) { return formatTime(new Date(2012, 0, 1, 0, d)); };
+  /************* Foreign Code *********************/
 
+  var formatDate = d3.time.format("%m/%y");
 
-  /*****************************/
-  var start = new Date(1,1,2012),
-      stop = new Date(1/1/2016);
-  this.x = d3.time.scale().range([0, this.width]).domain([start,stop]);
-  this.xAxis = d3.svg.axis()
-    .scale(this.x)
-    .ticks(24)
-    .tickFormat(d3.time.format("%m-%d"))
-    .orient("bottom");
-  /*****************************/
-  this.y = d3.scale.linear()
-    .range([that.height, that.margin.bottom]);
+  var x = d3.time.scale().range([0, this.width]);
+  var y = d3.scale.linear().range([this.height, 0]);
 
-  this.yAxis = d3.svg.axis()
-    .scale(this.y)
-    .orient("left");
+  var xAxis = d3.svg.axis().scale(x)
+    .orient("bottom").tickFormat(formatDate);
 
-  this.line = d3.svg.line()
-    .interpolate("basis")
-    .x(function(d) { return that.x(d.x); })
-    .y(function(d) { return that.y(d.y); });
+  var yAxis = d3.svg.axis().scale(y)
+    .orient("left").ticks(6);
 
-  this.area = d3.svg.area()
-    .interpolate("basis")
-    .defined(this.line.defined())
-    .x(function(d) { return that.x(d.x); })
-    .y0(that.y(0))
-    .y1(function(d) { return that.y(d.y); });
-
-  this.svg = this.parentElement.append("svg")
-    .attr("width", this.width + this.margin.left + this.margin.right)
-    .attr("height", this.height + this.margin.top + this.margin.bottom)
+  // Create the SVG drawing area
+  var svg = d3.select("body")
+    .append("svg")
+    .attr("width", this.width)
+    .attr("height", this.height)
     .append("g")
-    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ") ");
+    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
-  this.svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0,"+this.height+") ")
-      .append("text")
-      .attr("x",this.width/2)
-      .attr("y",40)
-      .text("time of day");
-
-
-  this.svg.append("g")
-      .attr("class", "y axis")
-      .attr("transform", "translate("+this.margin.left+",0) ")
-      .append("text")
-      .attr("transform", "translate("+this.margin.left+","+this.margin.top+") rotate(-90)")
-      .attr("y",-30)
-      .attr("x",-30)
-      .style("text-anchor", "end")
-      .text("");
-
-  this.yAxisLabel = this.svg.select('.y.axis').select('text');
-
-  this.tip = d3.tip()
-  .attr('class', 'd3-tip')
-  .offset([-10, 0])
-  .html(function(d) {
-    return "<span class='highlight'>"+d.type+"</span>";
-  })
-
-  this.svg.call(this.tip);
+  /**********************************************/
 
   this.wrangleData();
   // // call the update method
@@ -112,73 +64,65 @@ WhenVis.prototype.wrangleData = function(_filterFunction) {
 
 WhenVis.prototype.updateVis = function() {
   var that = this;
-  this.y.domain([0, d3.max(that.displayData, function (d) {
-      return d3.max(d.points, function (a) {return a.y;})})]);
 
-  this.svg.select(".y.axis")
-    .call(this.yAxis);
+  // Get the data
 
-  /* Change x axis here
-   *  
-   */
-  this.svg.select(".x.axis")
-    .call(this.xAxis)
-    .selectAll("text")  
-    .style("text-anchor", "end")
-    .attr("dx", "-.8em")
-    .attr("dy", ".15em")
-    .attr("transform", function(d) {
-        return "rotate(-90)" 
-        });
+  // Parse the date strings into javascript dates
+  data.forEach(function(d) {
+    d.created_date = parseDate(d.article_date);
+  });
 
+  // Determine the first and list dates in the data set
+  var monthExtent = d3.extent(this.data, function(d) { return d.created_date; });
 
-  var lbl = (this.yVariable[0] == 'speed') ? "speed (mph)" : "count";
-  lbl = (this.yVariable[0] == 'dist') ? "average distance per trip (miles)" :lbl;
-  lbl = (this.yVariable[0] == 'duration') ? "average time per trip (minutes)" : lbl;
-  this.yAxisLabel.text(lbl)
+  // Create one bin per month, use an offset to include the first and last months
+  var monthBins = d3.time.months(d3.time.month.offset(monthExtent[0],-1),
+                                 d3.time.month.offset(monthExtent[1],1));
 
-  var area = this.svg.selectAll(".area")
-      .data(that.displayData);
+  // Use the histogram layout to create a function that will bin the data
+  var binByMonth = d3.layout.histogram()
+    .value(function(d) { return d.created_date; })
+    .bins(monthBins);
 
-  area.enter().append("g")
-      .attr('class','area')
-      .on('mouseover', this.tip.show)
-      .on("mousemove", function(){return that.tip.style("top", (event.pageY+20)+"px").style("left",event.pageX+"px");})
-      .on('mouseout', this.tip.hide)
-      .append("path")
-      .attr("class", "areaPath");
+  // Bin the data by month
+  var histData = binByMonth(this.data);
 
-  area.select('path').transition()
-      .attr("d", function(d) { return that.area(d.points); })
-      .transition().duration(300)
-      .style("fill", function(d,i) {return that.color(i)})
-      .style("opacity", 0.5);
+  // Scale the range of the data by setting the domain
+  this.x.domain(d3.extent(monthBins));
+  this.y.domain([0, d3.max(histData, function(d) { return d.y; })]);
 
-  var line = this.svg.selectAll(".line")
-      .data(this.displayData);
+  // Set up one bar for each bin
+  // Months have slightly different lengths so calculate the width for each bin
+  // Note: dx, the width of the histogram bin, is in milliseconds so convert the x value
+  // into UTC time and convert the sum back to a date in order to help calculate the width
+  // Thanks to npdoty for pointing this out in this stack overflow post:
+  // http://stackoverflow.com/questions/17745682/d3-histogram-date-based
+  that.svg.selectAll(".bar")
+      .data(histData)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return this.x(d.x); })
+      .attr("width", function(d) { return this.x(new Date(d.x.getTime() + d.dx))- this.x(d.x)-1; })
+      .attr("y", function(d) { return this.y(d.y); })
+      .attr("height", function(d) { return this.height - this.y(d.y); });
 
-  line.enter().append("g")
-      .attr('class','line')
-      .on('mouseover', this.tip.show)
-      .on("mousemove", function(){return that.tip.style("top", (event.pageY+20)+"px").style("left",event.pageX+"px");})
-      .on('mouseout', this.tip.hide)
-      .append("path")
-  line.select("path").transition().duration(300)
-      .attr("d",function (d) { return that.line(d.points)})
-      .style("stroke", function(d,i) {return that.color(i)});
+  // Add the X Axis
+  that.svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0," + this.height + ")")
+      .call(xAxis);
 
+  // Add the Y Axis and label
+  that.svg.append("g")
+     .attr("class", "y axis")
+     .call(yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Number of Sightings");
 
-  var text = this.svg.selectAll(".datalabel")
-      .data(that.displayData);
-
-  text.enter().append("text")
-    .attr("class","datalabel");
-
-  text.select('text')
-    .attr("transform","translate(100,100)")
-    .text(function (d) { return d.type})
-  area.exit().remove();
-  line.exit().remove();
 }
 
 /**
@@ -230,6 +174,7 @@ WhenVis.prototype.filterAndAggregate = function(_filter) {
   // Set filter to a function that accepts all items
   var that = this;
   var res = [];
+  /**
   that.yVariable.forEach(function (t) {
     that.breakdown.forEach(function (w) {
       res.push({
@@ -240,6 +185,7 @@ WhenVis.prototype.filterAndAggregate = function(_filter) {
       })
     })
   });
+  **/
   return res;
 }
 

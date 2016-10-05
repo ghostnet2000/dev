@@ -165,7 +165,6 @@ $(function() {
 
     // call this function after both files are loaded -- error should be "null" if no error
     var dataLoaded = function(_data) {
-        dateData = _data.map(function (d) {
           /*
           return {
             date: d.article_date,
@@ -175,72 +174,12 @@ $(function() {
           }
 
           */
-          return {
-            timeofday: makeMinutes(d.timeofday),
-            dist : {
-              total: parseFloat(d.dist.replace(',','')),
-              weekend: parseFloat(d.distWeekend.replace(',','')),
-              weekday: parseFloat(d.dist.replace(',','')) - parseFloat(d.distWeekend.replace(',',''))
-            },
-            total : {
-              total: +d.total,
-              weekend: +d.totalWeekend,
-              weekday: +d.total - +d.totalWeekend
-            },
-            duration : {
-              total: +d.time,
-              weekend: +d.timeWeekend,
-              weekday: +d.time - +d.timeWeekend
-            },
-            female : {
-              total: +d.female,
-              weekend: +d.femaleWeekend,
-              weekday: +d.female - +d.femaleWeekend
-            },
-            male : {
-              total: +d.reg - +d.female,
-              weekend: +d.regWeekend - +d.femaleWeekend,
-              weekday: (+d.reg - +d.female) - (+d.regWeekend - +d.femaleWeekend)
-            },
-            registered : {
-              total: +d.reg,
-              weekend: +d.regWeekend,
-              weekday: +d.reg - +d.regWeekend
-            },
-            casual : {
-              total: +d.total - +d.reg,
-              weekend: +d.totalWeekend - +d.regWeekend,
-              weekday: (+d.total - +d.reg) - (+d.totalWeekend - +d.regWeekend)
-            },
-            leisure : {
-              total: +d.leisure,
-              weekend: +d.leisureWeekend,
-              weekday: +d.leisure - +d.leisureWeekend
-            },
-            commuter : {
-              total: +d.total - +d.leisure,
-              weekend: +d.totalWeekend - +d.leisureWeekend,
-              weekday: (+d.total - +d.female) - (+d.totalWeekend - +d.femaleWeekend)
-            }
-        }});
-
-        dateData.forEach(function (d) {
-          d.speed = {}
-          d.speed.total = 60 *d.dist.total / d.duration.total;
-          d.speed.weekend = 60 *d.dist.weekend / d.duration.weekend;
-          d.speed.weekday = 60 *d.dist.weekday / d.duration.weekday;
-          d.duration.total /= d.total.total;
-          d.duration.weekend /= d.total.weekend;
-          d.duration.weekday /= d.total.weekday;
-          d.dist.total /= d.total.total;
-          d.dist.weekend /= d.total.weekend;
-          d.dist.weekday /= d.total.weekday;
-        })
+        dateData = _data;
         initVis();
     };
 
     var startHere = function() {
-      d3.csv("data/timeofdaydata.csv", function(error, data) {
+      d3.json("output.json", function(error, data) {
         if (!error) {
           dataLoaded(data);
         }

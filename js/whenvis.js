@@ -8,6 +8,7 @@
 WhenVis = function(_parentElement, _data, _eventHandler) {
   this.parentElement = _parentElement;
   this.data = _data.features;
+  this.filtered = _data.features;
   this.eventHandler = _eventHandler;
   this.displayData = [];
   this.breakdown = ['total'];
@@ -46,44 +47,36 @@ WhenVis.prototype.initVis = function() {
   that.yAxis = d3.svg.axis().scale(that.y)
     .orient("left").ticks(6);
 
-  // Create the SVG drawing area
-
-  this.svg = this.parentElement.append("svg")
-    .attr("width", this.width + this.margin.left + this.margin.right)
-    .attr("height", this.height + this.margin.top + this.margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
-
 
   /**********************************************/
+  var parseDate = d3.time.format("%d/%m/%Y").parse;
+
+  this.filtered.forEach(function(d) {
+    d.properties.article_date = parseDate(d.properties.article_date);
+  });
 
   this.wrangleData();
   // // call the update method
   this.updateVis();
 }
 
-WhenVis.prototype.wrangleData = function(_filterFunction) {
-  this.displayData = this.filterAndAggregate(_filterFunction);
+WhenVis.prototype.wrangleData = function(_filterFunction, yVariable) {
+  alert(yVariable);
+  this.filtered = this.filterAndAggregate(_filterFunction, yVariable);
 }
 
 WhenVis.prototype.updateVis = function() {
   var that = this;
-  var parseDate = d3.time.format("%d/%m/%Y").parse;
 
   // Get the data
 
   // Parse the date strings into javascript dates
   //console.log(this.data);
   
-  
-  this.data.forEach(function(d) {
-    d.properties.article_date = parseDate(d.properties.article_date);
-  });
-  
 
 
   // Determine the first and list dates in the data set
-  var monthExtent = d3.extent(that.data, function(d) { return d.properties.article_date; });
+  var monthExtent = d3.extent(that.filtered, function(d) { return d.properties.article_date; });
 
   // Create one bin per month, use an offset to include the first and last months
   var monthBins = d3.time.months(d3.time.month.offset(monthExtent[0],-1),
@@ -96,7 +89,7 @@ WhenVis.prototype.updateVis = function() {
 
   //alert(monthExtent);
   // Bin the data by month
-  var histData = binByMonth(this.data);
+  var histData = binByMonth(this.filtered);
   //console.log(histData);
 
   // Scale the range of the data by setting the domain
@@ -111,6 +104,14 @@ WhenVis.prototype.updateVis = function() {
   // http://stackoverflow.com/questions/17745682/d3-histogram-date-based
 
   console.log(histData);
+
+    // Create the SVG drawing area
+
+  this.svg = this.parentElement.append("svg")
+    .attr("width", this.width + this.margin.left + this.margin.right)
+    .attr("height", this.height + this.margin.top + this.margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
 
   this.svg.selectAll(".bar")
       .data(histData)
@@ -162,26 +163,17 @@ WhenVis.prototype.updateVis = function() {
  * @param selection
  */
 
-WhenVis.prototype.onSelectionChange = function() {
-  var myDom = {
-      gender: ['male','female'],
-      total: ['total'],
-      weekend: ['weekend'],
-      weekday: ['weekday'],
-      commute: ['commuter','leisure'],
-      registered: ['registered','casual'],
-      dist: ['dist'],
-      speed:['speed'],
-      duration: ['duration']
-  };
+WhenVis.prototype.onSelectionChange = function(d) {
+
+
   var breakdown = d3.select('#formgroup').selectAll('.formgroup2.active');
   var yVariable = d3.select('#formgroup').selectAll('.formgroupy.active');
   breakdown = (breakdown.node()) ? breakdown.node().value : 'total';
   yVariable = (yVariable.node()) ? yVariable.node().value : 'total';
   //console.log(yVariable)
-  this.yVariable = myDom[yVariable];
-  this.breakdown = [breakdown]
-  this.wrangleData();
+
+
+  this.wrangleData(breakdown, yVariable);
   this.updateVis();
 }
 
@@ -200,24 +192,29 @@ WhenVis.prototype.onTypeChange = function(_dom) {
  *
  * */
 
-WhenVis.prototype.filterAndAggregate = function(_filter) {
+WhenVis.prototype.filterAndAggregate = function(_filter, _type) {
+  alert(_filter);
   // Set filter to a function that accepts all items
   var that = this;
   var res = [];
-  /**
-  that.yVariable.forEach(function (t) {
-    that.breakdown.forEach(function (w) {
-      res.push({
-        type: t+" "+w,
-        points: that.data.map(function (d) {
-          return {x: d.timeofday, y: d[t][w]}
-        })
+
+  /*** foreign code ****/
+  if (_filter) {
+   if (_filter == "total") {
+      that.filtered = that.data;
+   } else {
+      that.filtered = that.data.filter(function(d) {
+          return (d.properties.province == _filter.toUpperCase() )
       })
-    })
-  });
-  **/
-  return res;
+   }  
+  } 
+
+   //
+   //this.data = this.data.filter(_filter);
+  return that.filtered;
 }
+
+
 
 // WhenVis.prototype.mouseover = function() {
 //   d3.selectAll(".area").style("opacity",0.3);

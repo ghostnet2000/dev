@@ -8,7 +8,6 @@
 WhenVis = function(_parentElement, _data, _eventHandler) {
   this.parentElement = _parentElement;
   this.data = _data.features;
-  //console.log(_data);
   this.eventHandler = _eventHandler;
   this.displayData = [];
   this.breakdown = ['total'];
@@ -38,20 +37,23 @@ WhenVis.prototype.initVis = function() {
   var formatDate = d3.time.format("%m/%y");
 
   that.x = d3.time.scale().range([0, this.width]);
-  that.y = d3.scale.linear().range([this.height, 0]);
+  that.y = d3.scale.linear().range([this.height, that.margin.bottom]);
 
-  this.xAxis = d3.svg.axis().scale(that.x)
+
+  that.xAxis = d3.svg.axis().scale(that.x)
     .orient("bottom").tickFormat(formatDate);
 
   that.yAxis = d3.svg.axis().scale(that.y)
     .orient("left").ticks(6);
 
   // Create the SVG drawing area
+
   this.svg = this.parentElement.append("svg")
-    .attr("width", this.width)
-    .attr("height", this.height)
+    .attr("width", this.width + this.margin.left + this.margin.right)
+    .attr("height", this.height + this.margin.top + this.margin.bottom)
     .append("g")
     .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
 
   /**********************************************/
 
@@ -130,16 +132,6 @@ WhenVis.prototype.updateVis = function() {
   */
 
 
-
-  this.svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0,"+that.height+")")
-      .call(that.xAxis)
-      .append("text")
-      .attr("x",that.width/2)
-      .attr("y",40)
-      .text("Months");
-
   // Add the Y Axis and label
   this.svg.append("g")
      .attr("class", "y axis")
@@ -150,6 +142,16 @@ WhenVis.prototype.updateVis = function() {
       .attr("dy", ".71em")
       .style("text-anchor", "end")
       .text("Number of incidents");
+
+
+  this.svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0,"+ that.height +")")
+      .call(that.xAxis)
+    .append("text")
+      .attr("x",that.width/2)
+      .attr("y",40)
+      .text("Months");
 
 }
 

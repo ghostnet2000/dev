@@ -182,3 +182,8 @@ body {
 .panel-heading {
  padding: 0;
 }
+
+.bar {
+  fill: steelblue;
+  shape-rendering: crispEdges;
+}

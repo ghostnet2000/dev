@@ -96,7 +96,7 @@ CoastVis.prototype.updateVis = function() {
        
        r = 25000,
        c = that.color(o.province);
-       alert(o.properties.article_title);
+       
       var popup = L.popup(popup_options).setContent(o.properties.article_title);
       var circle = L.circle([o.properties.lat, o.properties.lon], r, {color: c, opacity: 1, fillOpacity: 0.8, className:'station',weight:2}).bindPopup(popup)
       circle.bindPopup(o.properties.article_title);
@@ -125,8 +125,6 @@ CoastVis.prototype.updateVis = function() {
  CoastVis.prototype.onHoodChange = function(d) {
       var that = this;
       if (d) {
-        alert(d);
-
         this.wrangleData(function (a) { return a.hood == d}, null);
       } else {
         this.wrangleData(function (a) { return true },null)
@@ -135,7 +133,6 @@ CoastVis.prototype.updateVis = function() {
  };
  CoastVis.prototype.onSelectionChange = function(d) {
       var that = this;
-      alert("_filter");
 
       this.wrangleData(null,d);
       this.updateVis();
@@ -143,18 +140,16 @@ CoastVis.prototype.updateVis = function() {
 
  CoastVis.prototype.filterAndAggregate = function(_filterHood,_filter) {
    var that = this;
-   alert(_filter);
+
    if (_filter) {
      if (_filter == "all") {
         that.filtered = that.stationData;
      } else {
         that.filtered = that.stationData.filter(function(d) {
-            console.log(d);
             return (d.properties.province == _filter.toUpperCase() )
         })
      }  
    } else {
-     alert(_filter);
      this.filter = all
    }
 

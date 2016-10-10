@@ -7,7 +7,8 @@
  */
 WhenVis = function(_parentElement, _data, _eventHandler) {
   this.parentElement = _parentElement;
-  this.data = _data;
+  this.data = _data.features;
+  //console.log(_data);
   this.eventHandler = _eventHandler;
   this.displayData = [];
   this.breakdown = ['total'];
@@ -24,6 +25,8 @@ WhenVis = function(_parentElement, _data, _eventHandler) {
   this.height =  this.parentElement.node().clientHeight- this.margin.top - this.margin.bottom;
   this.filter = null;
   this.initVis();
+  this.x;
+  this.y;
 }
 
 
@@ -34,18 +37,17 @@ WhenVis.prototype.initVis = function() {
 
   var formatDate = d3.time.format("%m/%y");
 
-  var x = d3.time.scale().range([0, this.width]);
-  var y = d3.scale.linear().range([this.height, 0]);
+  that.x = d3.time.scale().range([0, this.width]);
+  that.y = d3.scale.linear().range([this.height, 0]);
 
-  var xAxis = d3.svg.axis().scale(x)
+  this.xAxis = d3.svg.axis().scale(that.x)
     .orient("bottom").tickFormat(formatDate);
 
-  var yAxis = d3.svg.axis().scale(y)
+  that.yAxis = d3.svg.axis().scale(that.y)
     .orient("left").ticks(6);
 
   // Create the SVG drawing area
-  var svg = d3.select("body")
-    .append("svg")
+  this.svg = this.parentElement.append("svg")
     .attr("width", this.width)
     .attr("height", this.height)
     .append("g")
@@ -64,16 +66,22 @@ WhenVis.prototype.wrangleData = function(_filterFunction) {
 
 WhenVis.prototype.updateVis = function() {
   var that = this;
+  var parseDate = d3.time.format("%d/%m/%Y").parse;
 
   // Get the data
 
   // Parse the date strings into javascript dates
-  data.forEach(function(d) {
-    d.created_date = parseDate(d.article_date);
+  //console.log(this.data);
+  
+  
+  this.data.forEach(function(d) {
+    d.properties.article_date = parseDate(d.properties.article_date);
   });
+  
+
 
   // Determine the first and list dates in the data set
-  var monthExtent = d3.extent(this.data, function(d) { return d.created_date; });
+  var monthExtent = d3.extent(that.data, function(d) { return d.properties.article_date; });
 
   // Create one bin per month, use an offset to include the first and last months
   var monthBins = d3.time.months(d3.time.month.offset(monthExtent[0],-1),
@@ -81,15 +89,17 @@ WhenVis.prototype.updateVis = function() {
 
   // Use the histogram layout to create a function that will bin the data
   var binByMonth = d3.layout.histogram()
-    .value(function(d) { return d.created_date; })
+    .value(function(d) { return d.properties.article_date; })
     .bins(monthBins);
 
+  //alert(monthExtent);
   // Bin the data by month
   var histData = binByMonth(this.data);
+  //console.log(histData);
 
   // Scale the range of the data by setting the domain
-  this.x.domain(d3.extent(monthBins));
-  this.y.domain([0, d3.max(histData, function(d) { return d.y; })]);
+  that.x.domain(d3.extent(monthBins));
+  that.y.domain([0, d3.max(histData, function(d) { return d.y; })]);
 
   // Set up one bar for each bin
   // Months have slightly different lengths so calculate the width for each bin
@@ -97,31 +107,49 @@ WhenVis.prototype.updateVis = function() {
   // into UTC time and convert the sum back to a date in order to help calculate the width
   // Thanks to npdoty for pointing this out in this stack overflow post:
   // http://stackoverflow.com/questions/17745682/d3-histogram-date-based
-  that.svg.selectAll(".bar")
+
+  console.log(histData);
+
+  this.svg.selectAll(".bar")
       .data(histData)
     .enter().append("rect")
       .attr("class", "bar")
-      .attr("x", function(d) { return this.x(d.x); })
-      .attr("width", function(d) { return this.x(new Date(d.x.getTime() + d.dx))- this.x(d.x)-1; })
-      .attr("y", function(d) { return this.y(d.y); })
-      .attr("height", function(d) { return this.height - this.y(d.y); });
+      .attr("x", function(d) { return that.x(d.x); })
+      .attr("width", function(d) { return that.x(new Date(d.x.getTime() + d.dx))- that.x(d.x)-1; })
+      .attr("y", function(d) { return that.y(d.y); })
+      .attr("height", function(d) { return that.height - that.y(d.y); });
 
   // Add the X Axis
-  that.svg.append("g")
+  /*
+  alert(that.height);
+
+  this.svg.append("g")
       .attr("class", "x axis")
-      .attr("transform", "translate(0," + this.height + ")")
-      .call(xAxis);
+      .attr("transform", "translate(0," + that.height + ")")
+      .call(that.xAxis);
+  */
+
+
+
+  this.svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0,"+that.height+")")
+      .call(that.xAxis)
+      .append("text")
+      .attr("x",that.width/2)
+      .attr("y",40)
+      .text("Months");
 
   // Add the Y Axis and label
-  that.svg.append("g")
+  this.svg.append("g")
      .attr("class", "y axis")
-     .call(yAxis)
+     .call(that.yAxis)
     .append("text")
       .attr("transform", "rotate(-90)")
       .attr("y", 6)
       .attr("dy", ".71em")
       .style("text-anchor", "end")
-      .text("Number of Sightings");
+      .text("Number of incidents");
 
 }
 
@@ -148,7 +176,7 @@ WhenVis.prototype.onSelectionChange = function() {
   var yVariable = d3.select('#formgroup').selectAll('.formgroupy.active');
   breakdown = (breakdown.node()) ? breakdown.node().value : 'total';
   yVariable = (yVariable.node()) ? yVariable.node().value : 'total';
-  console.log(yVariable)
+  //console.log(yVariable)
   this.yVariable = myDom[yVariable];
   this.breakdown = [breakdown]
   this.wrangleData();

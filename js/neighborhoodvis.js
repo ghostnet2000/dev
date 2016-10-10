@@ -93,7 +93,6 @@ NeighborhoodVis.prototype.updateVis = function() {
        //s = that.filter(o),
        r = 25000,
        c = that.color(o.province);
-       //alert(o.properties.article_title);
       var popup = L.popup(popup_options).setContent(o.properties.article_title);
       var circle = L.circle([o.properties.lat, o.properties.lon], r, {color: c, opacity: 1, fillOpacity: 0.8, className:'station',weight:2}).bindPopup(popup)
       circle.bindPopup(o.properties.article_title);

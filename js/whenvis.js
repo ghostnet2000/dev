@@ -11,6 +11,7 @@ WhenVis = function(_parentElement, _data, _eventHandler) {
   this.filtered = _data.features;
   this.eventHandler = _eventHandler;
   this.displayData = [];
+  this.histData = [];
   this.breakdown = ['total'];
   this.yVariable = ['commuter','leisure'];
 
@@ -55,13 +56,53 @@ WhenVis.prototype.initVis = function() {
     d.properties.article_date = parseDate(d.properties.article_date);
   });
 
+  // Create the SVG drawing area
+
+  this.svg = this.parentElement.append("svg")
+    .attr("width", this.width + this.margin.left + this.margin.right)
+    .attr("height", this.height + this.margin.top + this.margin.bottom)
+    .append("g")
+    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
+
+  // Add the Y Axis and label
+  this.svg.append("g")
+     .attr("class", "y axis")
+     .call(that.yAxis)
+    .append("text")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 6)
+      .attr("dy", ".71em")
+      .style("text-anchor", "end")
+      .text("Number of incidents");
+
+
+  this.svg.append("g")
+      .attr("class", "x axis")
+      .attr("transform", "translate(0,"+ that.height +")")
+      .call(that.xAxis)
+    .append("text")
+      .attr("x",that.width/2)
+      .attr("y",40)
+      .text("Months");
+
+  this.updateVis();
+
+  this.svg.selectAll(".bar")
+      .data(that.histData)
+    .enter().append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return that.x(d.x); })
+      .attr("width", function(d) { return that.x(new Date(d.x.getTime() + d.dx))- that.x(d.x)-1; })
+      .attr("y", function(d) { return that.y(d.y); })
+      .attr("height", function(d) { return that.height - that.y(d.y); });
+
   this.wrangleData();
   // // call the update method
   this.updateVis();
 }
 
 WhenVis.prototype.wrangleData = function(_filterFunction, yVariable) {
-  alert(yVariable);
+  //alert(yVariable);
   this.filtered = this.filterAndAggregate(_filterFunction, yVariable);
 }
 
@@ -89,12 +130,12 @@ WhenVis.prototype.updateVis = function() {
 
   //alert(monthExtent);
   // Bin the data by month
-  var histData = binByMonth(this.filtered);
+  that.histData = binByMonth(this.filtered);
   //console.log(histData);
 
   // Scale the range of the data by setting the domain
   that.x.domain(d3.extent(monthBins));
-  that.y.domain([0, d3.max(histData, function(d) { return d.y; })]);
+  that.y.domain([0, d3.max(that.histData, function(d) { return d.y; })]);
 
   // Set up one bar for each bin
   // Months have slightly different lengths so calculate the width for each bin
@@ -103,24 +144,7 @@ WhenVis.prototype.updateVis = function() {
   // Thanks to npdoty for pointing this out in this stack overflow post:
   // http://stackoverflow.com/questions/17745682/d3-histogram-date-based
 
-  console.log(histData);
-
-    // Create the SVG drawing area
-
-  this.svg = this.parentElement.append("svg")
-    .attr("width", this.width + this.margin.left + this.margin.right)
-    .attr("height", this.height + this.margin.top + this.margin.bottom)
-    .append("g")
-    .attr("transform", "translate(" + this.margin.left + "," + this.margin.top + ")");
-
-  this.svg.selectAll(".bar")
-      .data(histData)
-    .enter().append("rect")
-      .attr("class", "bar")
-      .attr("x", function(d) { return that.x(d.x); })
-      .attr("width", function(d) { return that.x(new Date(d.x.getTime() + d.dx))- that.x(d.x)-1; })
-      .attr("y", function(d) { return that.y(d.y); })
-      .attr("height", function(d) { return that.height - that.y(d.y); });
+  console.log(that.histData);
 
   // Add the X Axis
   /*
@@ -132,27 +156,23 @@ WhenVis.prototype.updateVis = function() {
       .call(that.xAxis);
   */
 
+  var bar = this.svg.selectAll(".bar")
+      .data(that.histData)
+    bar.enter()
+      .append("rect")
+      .attr("class", "bar")
+      .attr("x", function(d) { return that.x(d.x); })
+      .attr("width", function(d) { return that.x(new Date(d.x.getTime() + d.dx))- that.x(d.x)-1; })
+      .attr("y", function(d) { return that.y(d.y); })
+      .attr("height", function(d) { return that.height - that.y(d.y); });
 
-  // Add the Y Axis and label
-  this.svg.append("g")
-     .attr("class", "y axis")
-     .call(that.yAxis)
-    .append("text")
-      .attr("transform", "rotate(-90)")
-      .attr("y", 6)
-      .attr("dy", ".71em")
-      .style("text-anchor", "end")
-      .text("Number of incidents");
+  this.svg.select(".y.axis")
+    .call(this.yAxis);
 
+  this.svg.select(".x.axis")
+    .call(this.xAxis);
 
-  this.svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0,"+ that.height +")")
-      .call(that.xAxis)
-    .append("text")
-      .attr("x",that.width/2)
-      .attr("y",40)
-      .text("Months");
+  bar.exit().remove();
 
 }
 
@@ -193,7 +213,7 @@ WhenVis.prototype.onTypeChange = function(_dom) {
  * */
 
 WhenVis.prototype.filterAndAggregate = function(_filter, _type) {
-  alert(_filter);
+  //alert(_filter);
   // Set filter to a function that accepts all items
   var that = this;
   var res = [];

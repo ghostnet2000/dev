@@ -120,11 +120,13 @@ WhenVis.prototype.updateVis = function() {
   var monthExtent = d3.extent(that.filtered, function(d) { return d.properties.article_date; });
 
   // Create one bin per month, use an offset to include the first and last months
+  var monthBins = null;
   var monthBins = d3.time.months(d3.time.month.offset(monthExtent[0],-1),
                                  d3.time.month.offset(monthExtent[1],1));
 
   // Use the histogram layout to create a function that will bin the data
-  var binByMonth = d3.layout.histogram()
+  var binByMonth = null;
+  binByMonth = d3.layout.histogram()
     .value(function(d) { return d.properties.article_date; })
     .bins(monthBins);
 
